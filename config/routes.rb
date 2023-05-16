@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "tweets#index"
-  resources :users do
-    resources :tweets, shallow: true
-  end
+  resources :users
+
+  resources :tweets
   
 end

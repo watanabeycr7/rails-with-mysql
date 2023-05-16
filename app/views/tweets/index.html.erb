@@ -8,11 +8,16 @@
 </head>
 <body>
 #index
+<p><%= link_to '新規作成', new_tweet_path %></p>
 <% @tweets.each do |tweet| %>
     <p><%= tweet.text %></p>
+    <p><%=  link_to 'show', tweet_path(tweet.id), method: :get%></p>
+    <p></p>
 <% end %>
+
+
 <% @users.each do |user| %>
-    <p><%= user.name %></p>
+    <p><% user.name %></p>
 <% end %>
 </body>
 </html>
