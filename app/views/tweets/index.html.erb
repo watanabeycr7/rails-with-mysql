@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-#index
+<h1>index</h1>
 <p><%= link_to '新規作成', new_tweet_path %></p>
+<table>
 <% @tweets.each do |tweet| %>
-    <p><%= tweet.text %></p>
-    <p><%=  link_to 'show', tweet_path(tweet.id), method: :get%></p>
-    <p></p>
+    <tr>
+        <td><%= tweet.text %></td>
+        <td><%=  link_to '詳細', tweet_path(tweet.id), method: :get%></td>
+    </tr>
 <% end %>
-
-
-<% @users.each do |user| %>
-    <p><% user.name %></p>
-<% end %>
-</body>
-</html>
+</table>

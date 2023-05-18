@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>show アクション</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <p><%= @tweet.text %></p>
-    <% link_to 'destroy', tweet_path(@tweet), data: {turbo_method: :delete} %>
-    <%= link_to "Destroy", tweet_path(@tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-</body>
-
-</html>
+<table>
+    <tr>
+        <td><%= @tweet.text %></td>
+        <td><%= @tweet.created_at.in_time_zone('Tokyo') %></td>
+        <td><%= link_to '編集', edit_tweet_path(@tweet.id), method: :get %></td>
+        <td><%= link_to "削除", tweet_path(@tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+    </tr>
+</table>
